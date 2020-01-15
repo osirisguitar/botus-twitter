@@ -1,8 +1,8 @@
-const twit = require('twit')
-const config = require('./lib/config')
+const randomTweetService = require('./lib/randomTweetService')
 
-const twitterer = new twit(config)
+const tweet = async () => {
+  const response = await randomTweetService.makeRandomTweet()
+  console.log('Tweeted', response)
+}
 
-twitterer.post('statuses/update', { status: 'bot\'s are gonna bot' }, (err, data, response) => {
-  console.log(data)
-})
+tweet()
